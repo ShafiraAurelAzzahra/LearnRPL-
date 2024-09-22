@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
-import 'pages/splash_screen.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'routes/app_routes.dart';
+import 'home_controller.dart'; // Pastikan untuk mengimpor file controller
 
 void main() {
-  runApp(const LearnRPLApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((value) {
+    Get.put(HomeController()); // Inisialisasi HomeController di sini
+    runApp(MyApp());
+  });
 }
 
-class LearnRPLApp extends StatelessWidget {
-  const LearnRPLApp({super.key});
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'LearnRPL',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        useMaterial3: true,  // Jika ingin menggunakan Material Design 3
-      ),
-      home: const SplashScreen(),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      locale: Get.deviceLocale,
+      fallbackLocale: Locale('en', 'US'),
+      title: 'myapp',
+      initialRoute: AppRoutes.initialRoute,
+      getPages: AppRoutes.pages,
     );
   }
 }
-
