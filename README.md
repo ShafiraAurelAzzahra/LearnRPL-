@@ -1,16 +1,18 @@
-# learn_rpl
+NAMA : SHAFIRA AUREL AZZAHRA
+NPM : 2213025005
+KELAS : A
+MATA KULIAH : MOBILE PROGAMMING
+PTI
 
-A new Flutter project.
+Aplikasi ini dibuat untuk menyelesaikan tugas mobile programming dalam pembuatan aplikasi android 
+Pada aplikasi ini saya membuat aplikasi LearnRPL yang berisikan sekumpulan materi mengenai RPL yang disusun secara mudah agar user dapat belajar dengan nyaman dan juga saya sediakan untuk quiz agar tau pemahaman user setelah membaca materi 
 
-## Getting Started
+1. Program APlikasi Yang Sudah Saya Buat Spalsh Screen :
+   
+![Screenshot 2024-09-22 165013](https://github.com/user-attachments/assets/2ee8aae4-c73a-481c-b529-6f375f1c53da)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+2. Program Aplikasi Yang Sudah Saya Buat Home Screen :
+   
+   ![Screenshot 2024-09-22 165033](https://github.com/user-attachments/assets/9a906a06-19a2-4d1b-adb2-d0e4c4592cd0)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
