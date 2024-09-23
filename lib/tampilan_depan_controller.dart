@@ -1,24 +1,23 @@
-import 'package:get/get.dart';
+import 'package:get/get.dart'; 
+// Mengimpor GetX untuk manajemen state, routing, dan dependency injection.
 
-/// This class defines the variables used in the [tampilan_depan_screen],
-/// and is typically used to hold data that is passed between different parts of the application.
-class TampilanDepanModel {}
+class TampilanDepanModel {} 
+// Kelas model kosong untuk halaman tampilan depan. Dapat digunakan untuk menyimpan data yang relevan.
 
-/// A controller class for the TampilanDepanScreen.
-///
-/// This class manages the state of the TampilanDepanScreen, including the
-/// current tampilanDepanModelObj
-class TampilanDepanController extends GetxController {
-  Rx<TampilanDepanModel> tampilanDepanModelObj = TampilanDepanModel().obs;
+class TampilanDepanController extends GetxController { 
+  // Controller untuk mengatur logika dan data yang terhubung dengan tampilan depan.
+
+  Rx<TampilanDepanModel> tampilanDepanModelObj = TampilanDepanModel().obs; 
+  // Membuat objek dari `TampilanDepanModel` sebagai observasi (Rx) untuk memungkinkan reaktifitas data.
 }
 
-/// A binding class for the TampilanDepanScreen.
-///
-/// This class ensures that the TampilanDepanController is created when the
-/// TampilanDepanScreen is first loaded.
-class TampilanDepanBinding extends Bindings {
+class TampilanDepanBinding extends Bindings { 
+  // Kelas untuk mendeklarasikan dependensi yang diperlukan untuk `TampilanDepanController`.
+  
   @override
   void dependencies() {
-    Get.lazyPut(() => TampilanDepanController());
+    Get.lazyPut(() => TampilanDepanController()); 
+    // Menggunakan `Get.lazyPut` untuk inisialisasi `TampilanDepanController` hanya ketika diperlukan.
+    // Ini membantu menghemat memori dengan tidak membuat instance controller sebelum diperlukan.
   }
 }
