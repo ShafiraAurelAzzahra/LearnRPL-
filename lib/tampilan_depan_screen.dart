@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'tampilan_depan_controller.dart'; // ignore_for_file: must_be_immutable
-import 'routes/app_routes.dart'; // Adjust this path according to your project structure
+import 'tampilan_depan_controller.dart'; 
+import 'routes/app_routes.dart'; 
 
 class TampilanDepanScreen extends GetWidget<TampilanDepanController> {
   const TampilanDepanScreen({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class TampilanDepanScreen extends GetWidget<TampilanDepanController> {
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, // Center the contents
+            mainAxisAlignment: MainAxisAlignment.center, 
             children: [
               Padding(
                 padding: EdgeInsets.zero,
@@ -44,7 +44,7 @@ class TampilanDepanScreen extends GetWidget<TampilanDepanController> {
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8),
                   ),
                   onPressed: () {
-                    Get.toNamed(AppRoutes.homeScreen); // Navigate to HomeScreen
+                    Get.toNamed(AppRoutes.homeScreen); 
                   },
                   child: Text(
                     "Get Started",
