@@ -1,33 +1,29 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter/material.dart'; // Mengimpor Material Design untuk membangun UI di Flutter.
+import 'package:get/get.dart'; // Mengimpor GetX untuk manajemen state, routing, dan dependency injection.
 
-/// This class defines the variables used in the [home_screen],
-/// and is typically used to hold data that is passed between different parts of the application.
-class HomeModel {}
+class HomeModel {} // Membuat kelas model kosong sebagai template data yang akan digunakan oleh controller.
 
-/// A controller class for the HomeScreen.
-///
-/// This class manages the state of the HomeScreen, including the
-/// current homeModelObj
-class HomeController extends GetxController {
-  TextEditingController searchController = TextEditingController();
+class HomeController extends GetxController { // Controller untuk mengatur logika dan data yang terhubung dengan UI.
+  TextEditingController searchController = TextEditingController(); 
+  // Controller untuk mengatur input teks pada TextField.
 
-  Rx<HomeModel> homeModelObj = HomeModel().obs;
+  Rx<HomeModel> homeModelObj = HomeModel().obs; 
+  // Membuat objek HomeModel sebagai observasi (Rx) untuk memungkinkan reaktifitas data.
 
   @override
   void onClose() {
     super.onClose();
-    searchController.dispose();
+    searchController.dispose(); 
+    // Menghapus controller untuk input teks ketika controller ini dihancurkan (menghindari memory leaks).
   }
 }
 
-/// A binding class for the HomeScreen.
-///
-/// This class ensures that the HomeController is created when the
-/// HomeScreen is first loaded.
-class HomeBinding extends Bindings {
+class HomeBinding extends Bindings { 
+  // Kelas untuk mendeklarasikan dependensi. Bindings mengelola lifecycle dependency injection di GetX.
+  
   @override
   void dependencies() {
-    Get.lazyPut(() => HomeController());
+    Get.lazyPut(() => HomeController()); 
+    // Menggunakan Get.lazyPut untuk inisialisasi HomeController hanya ketika diperlukan.
   }
 }
