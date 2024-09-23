@@ -1,30 +1,31 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
+import 'package:flutter/material.dart'; // Mengimpor Material Design package.
+import 'package:flutter_test/flutter_test.dart'; // Mengimpor Flutter Test untuk melakukan pengujian widget.
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-
-import 'package:myapp/main.dart';
+import 'package:myapp/main.dart'; // Mengimpor file utama aplikasi.
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    // Fungsi main() yang menjalankan test case dengan deskripsi "Counter increments smoke test".
+    
+    await tester.pumpWidget(MyApp()); 
+    // Menginisialisasi widget `MyApp` ke dalam tester. Ini seperti menjalankan aplikasi untuk pengujian.
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('0'), findsOneWidget); 
+    // Memeriksa apakah teks '0' ditemukan satu kali di layar (counter dimulai dari 0).
+    
+    expect(find.text('1'), findsNothing); 
+    // Memeriksa apakah teks '1' tidak ditemukan di layar (karena belum ditambah).
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    await tester.tap(find.byIcon(Icons.add)); 
+    // Menemukan tombol dengan ikon 'add' (plus) dan mensimulasikan ketukan.
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    await tester.pump(); 
+    // Memicu frame baru untuk memperbarui tampilan setelah ketukan tombol.
+
+    expect(find.text('0'), findsNothing); 
+    // Memeriksa apakah teks '0' tidak ditemukan lagi setelah counter ditambah.
+    
+    expect(find.text('1'), findsOneWidget); 
+    // Memeriksa apakah teks '1' ditemukan satu kali di layar setelah counter ditambah.
   });
 }
