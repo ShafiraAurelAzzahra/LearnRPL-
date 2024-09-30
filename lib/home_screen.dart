@@ -1,104 +1,128 @@
-import 'package:flutter/material.dart'; // Mengimpor Material Design package untuk UI di Flutter.
-import 'package:get/get.dart'; // Mengimpor GetX untuk manajemen state dan routing.
-import 'home_controller.dart'; // Mengimpor HomeController untuk logika bisnis.
+// Mengimpor library Flutter Material untuk membuat UI
+import 'package:flutter/material.dart';  
+import 'package:get/get.dart';  // Mengimpor GetX untuk state management dan navigasi
+import 'package:myapp/materi.dart';  // Mengimpor halaman materi untuk navigasi
+import 'package:myapp/quiz.dart';  // Mengimpor halaman quiz untuk navigasi
+import 'home_controller.dart';  // Mengimpor HomeController untuk kontrol logika
 
-class HomeScreen extends GetWidget<HomeController> { // Menggunakan GetWidget untuk menghubungkan HomeController dengan UI.
-  const HomeScreen({Key? key}) : super(key: key); // Konstruktor untuk HomeScreen dengan key opsional.
+// Definisi kelas HomeScreen yang menggunakan GetWidget dan dikendalikan oleh HomeController
+class HomeScreen extends GetWidget<HomeController> {
+  const HomeScreen({Key? key}) : super(key: key);  // Konstruktor HomeScreen
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea( // Membuat area aman yang menghindari overlap dengan area sistem seperti status bar.
-      child: Scaffold( // Scaffold menyediakan struktur dasar untuk halaman, termasuk AppBar, body, dan bottom navigation.
-        resizeToAvoidBottomInset: false, // Menghindari penyesuaian layout ketika keyboard muncul.
-        backgroundColor: Colors.white, // Mengatur warna latar belakang menjadi putih.
-        body: Column( // Membuat layout vertikal menggunakan Column.
+    return SafeArea(  // Menggunakan SafeArea agar UI tidak terpotong oleh area notifikasi
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,  // Menghindari inset bawah (misalnya keyboard)
+        backgroundColor: Colors.white,  // Warna latar belakang putih
+        body: Column(  // Kolom utama untuk UI
           children: [
-            Padding( // Menambahkan padding di sekitar elemen-elemen di dalam Column.
-              padding: const EdgeInsets.all(16.0), // Padding sebesar 16 pada semua sisi.
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start, // Menyusun elemen-elemen di kolom secara horizontal mulai dari kiri.
+            Padding(  // Padding untuk memberi jarak di sekitar widget
+              padding: const EdgeInsets.all(16.0),  // Padding 16 pixel di semua sisi
+              child: Column(  // Kolom untuk menumpuk widget secara vertikal
+                crossAxisAlignment: CrossAxisAlignment.start,  // Menyelaraskan widget di kiri
                 children: [
-                  Row( // Membuat layout horizontal (sejajar).
+                  Row(  // Membuat baris horizontal untuk ikon dan teks
                     children: [
-                      const Icon(Icons.person, size: 32, color: Color(0XFF083791)), // Menampilkan ikon person dengan ukuran 32 dan warna biru.
-                      const SizedBox(width: 8), // Memberikan jarak 8px antara ikon dan teks.
-                      Column( // Kolom untuk menampilkan teks "Hi Good People!" dan "Welcome App LearnRPL".
-                        crossAxisAlignment: CrossAxisAlignment.start, // Menyusun teks dari kiri.
+                      const Icon(Icons.person, size: 32, color: Color(0XFF083791)),  // Ikon user berwarna biru
+                      const SizedBox(width: 8),  // Jarak horizontal 8 pixel
+                      Column(  // Kolom untuk menumpuk teks
+                        crossAxisAlignment: CrossAxisAlignment.start,  // Menyelaraskan teks ke kiri
                         children: const [
-                          Text(
+                          Text(  // Teks sapaan
                             'Hi Good People !',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0XFF083791)), // Teks "Hi Good People!" dengan warna biru.
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0XFF083791)),  // Teks biru dan bold
                           ),
-                          Text('Welcome App LearnRPL', style: TextStyle(fontSize: 16, color: Color(0XFF083791))), // Teks sambutan dengan warna biru.
+                          Text('Welcome App LearnRPL', style: TextStyle(fontSize: 16, color: Color(0XFF083791))),  // Teks kedua dengan ukuran 16
                         ],
                       ),
                     ],
                   ),
-                  const SizedBox(height: 20), // Memberikan jarak vertikal sebesar 20px.
-                  Card( // Menambahkan Card untuk tampilan informasi.
-                    color: const Color(0XFF083791), // Warna card biru.
-                    elevation: 5, // Memberikan bayangan elevasi sebesar 5.
-                    child: Padding( // Menambahkan padding di dalam Card.
-                      padding: const EdgeInsets.all(16.0), // Padding sebesar 16px.
-                      child: Row( // Layout horizontal untuk teks dan gambar.
+                  const SizedBox(height: 20),  // Jarak vertikal 20 pixel
+                  Card(  // Kartu untuk informasi aplikasi
+                    color: const Color(0XFF083791),  // Warna biru pada card
+                    elevation: 5,  // Elevasi untuk efek bayangan
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),  // Padding di dalam card
+                      child: Row(  // Baris untuk teks dan gambar
                         children: [
-                          Expanded( // Memperluas widget anak agar mengambil ruang sisa.
-                            child: Column( // Kolom untuk teks "Hello" dan deskripsi aplikasi.
-                              crossAxisAlignment: CrossAxisAlignment.start, // Teks disusun dari kiri.
+                          Expanded(  // Expanded agar teks mengambil ruang yang tersisa
+                            child: Column(  // Kolom untuk teks di dalam card
+                              crossAxisAlignment: CrossAxisAlignment.start,  // Menyelaraskan teks ke kiri
                               children: const [
                                 Text(
                                   'Hello',
-                                  style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold), // Teks "Hello" dengan warna putih.
+                                  style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),  // Teks putih dan bold
                                 ),
-                                SizedBox(height: 10), // Jarak vertikal sebesar 10px.
+                                SizedBox(height: 10),  // Jarak vertikal 10 pixel
                                 Text(
                                   'Aplikasi ini adalah platform pembelajaran yang menyediakan materi lengkap untuk mempelajari Rekayasa Perangkat Lunak',
-                                  style: TextStyle(color: Colors.white), // Deskripsi aplikasi dengan teks putih.
+                                  style: TextStyle(color: Colors.white),  // Teks putih
                                 ),
                               ],
                             ),
                           ),
-                          Image.asset( // Gambar di samping teks.
-                            'assets/images/img_rpl1_2.png', // Path menuju gambar lokal.
-                            height: 50, // Tinggi gambar 50px.
+                          Image.asset(  // Gambar logo dalam card
+                            'assets/images/img_rpl1_2.png',  // Aset gambar
+                            height: 50,  // Tinggi gambar 50 pixel
                           ),
                         ],
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20), // Jarak vertikal 20px.
-                  TextField( // Menambahkan Search bar.
-                    decoration: InputDecoration( 
-                      hintText: 'Search', // Teks placeholder "Search".
-                      hintStyle: const TextStyle(color: Color(0XFF083791)), // Warna teks placeholder biru.
-                      prefixIcon: const Icon(Icons.search, color: Color(0XFF083791)), // Ikon pencarian di kiri dengan warna biru.
-                      border: OutlineInputBorder( 
-                        borderRadius: BorderRadius.circular(8), // Border berbentuk rounded dengan radius 8px.
-                        borderSide: const BorderSide(color: Color(0XFF083791)), // Warna border biru.
+                  const SizedBox(height: 20),  // Jarak vertikal 20 pixel
+                  TextField(  // Kotak pencarian
+                    decoration: InputDecoration(  // Dekorasi untuk input teks
+                      hintText: 'Search',  // Teks placeholder "Search"
+                      hintStyle: const TextStyle(color: Color(0XFF083791)),  // Teks placeholder berwarna biru
+                      prefixIcon: const Icon(Icons.search, color: Color(0XFF083791)),  // Ikon pencarian biru
+                      border: OutlineInputBorder(  // Batas kotak input
+                        borderRadius: BorderRadius.circular(8),  // Sudut melengkung 8 pixel
+                        borderSide: const BorderSide(color: Color(0XFF083791)),  // Warna batas biru
                       ),
-                      focusedBorder: OutlineInputBorder( // Border ketika TextField aktif.
-                        borderRadius: BorderRadius.circular(8), 
-                        borderSide: const BorderSide(color: Color(0XFF083791)), // Border biru saat aktif.
+                      focusedBorder: OutlineInputBorder(  // Batas saat fokus
+                        borderRadius: BorderRadius.circular(8),  // Sudut melengkung 8 pixel
+                        borderSide: const BorderSide(color: Color(0XFF083791)),  // Warna batas biru saat fokus
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 20), // Jarak vertikal sebesar 20px.
-            Expanded( // Menggunakan Expanded agar bagian ini bisa scroll jika konten melebihi layar.
-              child: SingleChildScrollView( // Membuat konten scrollable.
-                child: Padding( // Menambahkan padding di sekitar Row.
-                  padding: const EdgeInsets.all(16.0), 
-                  child: Row( // Membuat dua item Materi dan Quiz berdampingan.
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween, // Jarak antara item diatur agar bersebelahan.
+            const SizedBox(height: 20),  // Jarak vertikal 20 pixel
+            Expanded(  // Expanded agar scroll view mengambil sisa ruang yang ada
+              child: SingleChildScrollView(  // Membuat layar bisa di-scroll
+                child: Padding(  // Padding dalam scroll view
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(  // Baris untuk menempatkan item Materi dan Quiz secara horizontal
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,  // Memberi jarak di antara item
                     children: [
-                      Expanded(
-                        child: buildSingleItem('Materi', 'Materi', 'assets/images/img_premium_vector.png', const Color(0XFF083791)), // Widget untuk item "Materi".
+                      Expanded(  // Expanded untuk item Materi agar menempati ruang yang tersedia
+                        child: InkWell(  // InkWell untuk mendeteksi klik pada item
+                          onTap: () {
+                            Get.to(() => MateriPage());  // Navigasi ke halaman Materi saat diklik
+                          },
+                          child: buildSingleItem(  // Memanggil fungsi untuk membangun item
+                            'Materi',  // Judul item Materi
+                            'View Catalog Materi',  // Deskripsi item Materi
+                            'assets/images/img_premium_vector.png',  // Gambar untuk item Materi
+                            const Color(0XFF083791),  // Warna teks biru
+                          ),
+                        ),
                       ),
-                      const SizedBox(width: 12), // Jarak horizontal sebesar 12px.
-                      Expanded(
-                        child: buildSingleItem('Quiz', 'Quiz', 'assets/images/img_premium_vector_114x152.png', const Color(0XFF083791)), // Widget untuk item "Quiz".
+                      const SizedBox(width: 12),  // Jarak horizontal 12 pixel
+                      Expanded(  // Expanded untuk item Quiz agar menempati ruang yang tersedia
+                        child: InkWell(  // InkWell untuk mendeteksi klik pada item Quiz
+                          onTap: () {
+                            Get.to(() => QuizPage());  // Navigasi ke halaman Quiz saat diklik
+                          },
+                          child: buildSingleItem(  // Memanggil fungsi untuk membangun item Quiz
+                            'Quiz',  // Judul item Quiz
+                            'View Catalog Quiz',  // Deskripsi item Quiz
+                            'assets/images/img_premium_vector_114x152.png',  // Gambar untuk item Quiz
+                            const Color(0XFF083791),  // Warna teks biru
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -107,25 +131,25 @@ class HomeScreen extends GetWidget<HomeController> { // Menggunakan GetWidget un
             ),
           ],
         ),
-        bottomNavigationBar: BottomNavigationBar( // Menambahkan Bottom Navigation Bar.
-          currentIndex: 0, // Index aktif pada tab Home.
-          onTap: (index) {
-            // Handle navigasi saat tab di-tap.
+        bottomNavigationBar: BottomNavigationBar(  // BottomNavigationBar untuk navigasi di bawah layar
+          currentIndex: 0,  // Menetapkan tab Home sebagai yang aktif
+          onTap: (index) {  // Fungsi untuk mengatur navigasi antar halaman
+            // Navigasi berdasarkan index (Home, Materi, Quiz)
           },
-          selectedItemColor: const Color(0XFF083791), // Warna biru untuk item yang dipilih.
-          unselectedItemColor: const Color(0XFF083791), // Warna biru untuk item yang tidak dipilih.
-          items: const [
+          selectedItemColor: const Color(0XFF083791),  // Warna biru untuk item yang dipilih
+          unselectedItemColor: const Color(0XFF083791),  // Warna biru juga untuk item yang tidak dipilih
+          items: const [  // Item navigasi untuk Home, Materi, dan Quiz
             BottomNavigationBarItem(
-              icon: Icon(Icons.home), // Ikon untuk tab Home.
-              label: 'Home', // Label untuk tab Home.
+              icon: Icon(Icons.home),  // Ikon untuk Home
+              label: 'Home',  // Label Home
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.book), // Ikon untuk tab Materi.
-              label: 'Materi', // Label untuk tab Materi.
+              icon: Icon(Icons.book),  // Ikon untuk Materi
+              label: 'Materi',  // Label Materi
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.quiz), // Ikon untuk tab Quiz.
-              label: 'Quiz', // Label untuk tab Quiz.
+              icon: Icon(Icons.quiz),  // Ikon untuk Quiz
+              label: 'Quiz',  // Label Quiz
             ),
           ],
         ),
@@ -133,54 +157,55 @@ class HomeScreen extends GetWidget<HomeController> { // Menggunakan GetWidget un
     );
   }
 
-  // Fungsi untuk membuat item tampilan dengan gambar dan teks.
+  // Fungsi untuk membuat item (Materi/Quiz) secara dinamis
   Widget buildSingleItem(String title, String item, String imagePath, Color titleColor) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start, // Menyusun elemen dari kiri.
+      crossAxisAlignment: CrossAxisAlignment.start,  // Menyelaraskan konten ke kiri
       children: [
         Text(
-          title,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: titleColor), // Menampilkan judul dengan warna yang dapat diubah.
+          title,  // Menampilkan judul item (Materi/Quiz)
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: titleColor),  // Teks dengan warna dinamis
         ),
-        const SizedBox(height: 10), // Jarak vertikal sebesar 10px.
-        Card(
-          elevation: 3, // Menambahkan elevasi bayangan pada Card.
+        const SizedBox(height: 10),  // Jarak vertikal 10 pixel
+        Card(  // Membuat card untuk gambar dan deskripsi item
+          elevation: 3,  // Elevasi untuk bayangan card
           child: SizedBox(
-            height: 150, // Mengatur tinggi Card menjadi 150px.
-            child: GestureDetector( // Widget untuk mendeteksi interaksi sentuh.
-              onTap: () {
-                // Aksi ketika item di-tap.
-              },
-              child: Stack( // Menumpuk gambar dan teks pada posisi bawah.
-                alignment: Alignment.bottomCenter, // Mengatur konten di bagian bawah.
-                children: [
-                  Column( // Kolom untuk menampilkan gambar.
-                    children: [
-                      Expanded(
-                        child: Image.asset(
-                          imagePath, // Gambar yang ditampilkan.
-                          width: double.infinity, // Gambar menyesuaikan lebar.
-                          fit: BoxFit.cover, // Gambar menutupi seluruh area yang tersedia.
-                        ),
-                      ),
-                    ],
+            height: 150,  // Tinggi card diatur 150 pixel
+            child: Column(
+              children: [
+                Expanded(  // Expanded untuk gambar agar memenuhi ruang card
+                  child: Image.asset(
+                    imagePath,  // Menampilkan gambar dari parameter imagePath
+                    width: double.infinity,  // Gambar memenuhi lebar card
+                    fit: BoxFit.cover,  // Gambar menyesuaikan ukuran card
                   ),
-                  Container( // Kontainer di bawah gambar untuk menampilkan teks item.
-                    color: Color(0XFF083791), // Warna biru untuk latar teks.
-                    width: double.infinity, // Lebar penuh untuk teks.
-                    padding: const EdgeInsets.all(8.0), // Padding 8px untuk teks.
+                ),
+                InkWell(  // InkWell untuk mendeteksi klik pada deskripsi item
+                  onTap: () {
+                    // Navigasi ke halaman sesuai dengan item yang diklik (Materi/Quiz)
+                    if (item == 'View Catalog Materi') {
+                      Get.to(() => MateriPage());  // Navigasi ke MateriPage
+                    }
+                    if (item == 'View Catalog Quiz') {
+                      Get.to(() => QuizPage());  // Navigasi ke QuizPage
+                    }
+                  },
+                  child: Container(
+                    color: Color(0XFF083791),  // Warna biru untuk latar belakang teks
+                    width: double.infinity,  // Memenuhi lebar card
+                    padding: const EdgeInsets.all(8.0),  // Padding dalam container
                     child: Text(
-                      item,
-                      textAlign: TextAlign.center, // Teks berada di tengah.
+                      item,  // Menampilkan deskripsi item
+                      textAlign: TextAlign.center,  // Teks diselaraskan di tengah
                       style: const TextStyle(
-                        color: Colors.white, // Warna teks putih.
-                        fontSize: 14, // Ukuran font disesuaikan.
-                        fontWeight: FontWeight.bold, // Teks dengan huruf tebal.
+                        color: Colors.white,  // Warna teks putih
+                        fontSize: 14,  // Ukuran teks disesuaikan agar pas di dalam box
+                        fontWeight: FontWeight.bold,  // Teks bold
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
