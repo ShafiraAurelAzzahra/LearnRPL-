@@ -16,6 +16,13 @@ class HomeController extends GetxController { // Controller untuk mengatur logik
     searchController.dispose(); 
     // Menghapus controller untuk input teks ketika controller ini dihancurkan (menghindari memory leaks).
   }
+
+  var currentIndex = 0.obs; // Mendeklarasikan variabel currentIndex yang menyimpan nilai indeks tab saat ini, dan membuatnya menjadi observable dengan .obs
+
+void changeTabIndex(int index) { // Mendefinisikan metode changeTabIndex yang menerima parameter index
+  currentIndex.value = index; // Mengubah nilai currentIndex menjadi nilai index yang diberikan
+}
+
 }
 
 class HomeBinding extends Bindings { 
