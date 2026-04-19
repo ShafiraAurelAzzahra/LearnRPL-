@@ -16,16 +16,9 @@ Project ini dikembangkan secara mandiri (solo project), mulai dari tahap peranca
 ---
 
 ## 🖼️ Preview
-> screenshot aplikasi
+> Spalsh Screen <img width="434" height="690" alt="Picture1" src="https://github.com/user-attachments/assets/7c0964b1-0bbf-4e9c-a49d-f1f63a2591c5" />
 
-![Tampilan Spalsh Screen](<img width="297" height="471" alt="image" src="https://github.com/user-attachments/assets/e715201a-5994-49c8-8411-8e8aa3f9a7a6" />)
-![Materi](link-gambar)
-![Materi](link-gambar)
-![Materi](link-gambar)
-![Materi](link-gambar)
-![Materi](link-gambar)
-![Materi](link-gambar)
-![Materi](link-gambar)
+
 
 ---
 
