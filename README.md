@@ -25,7 +25,7 @@ Contoh:
 ---
 
 ## 📥 Download Aplikasi
-👉 (Tambahkan link Google Drive APK kamu di sini)
+👉 https://drive.google.com/file/d/1vmqpDaE5GDoVLB8CJHSGNwHkUvvWR2Yd/view?usp=drive_link
 
 ---
 
