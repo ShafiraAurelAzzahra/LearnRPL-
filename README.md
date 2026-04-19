@@ -16,9 +16,12 @@ Project ini dikembangkan secara mandiri (solo project), mulai dari tahap peranca
 ---
 
 ## 🖼️ Preview
-> Spalsh Screen <img width="434" height="690" alt="Picture1" src="https://github.com/user-attachments/assets/7c0964b1-0bbf-4e9c-a49d-f1f63a2591c5" />
 
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7c0964b1-0bbf-4e9c-a49d-f1f63a2591c5" width="220"/>
+  <img src="https://github.com/user-attachments/assets/55a99966-c385-4bc2-b25c-8ad7466e1fa4" width="220"/>
+  <img src="https://github.com/user-attachments/assets/4208b4ee-9753-43e9-a746-266119ad4f70" width="220"/>
+</p>
 
 ---
 
