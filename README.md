@@ -16,10 +16,15 @@ Project ini dikembangkan secara mandiri (solo project), mulai dari tahap peranca
 ---
 
 ## 🖼️ Preview
-> Tambahkan screenshot aplikasi di sini (home, materi, quiz)
+> screenshot aplikasi
 
-Contoh:
-![Home](link-gambar)
+![Tampilan Spalsh Screen](<img width="297" height="471" alt="image" src="https://github.com/user-attachments/assets/e715201a-5994-49c8-8411-8e8aa3f9a7a6" />)
+![Materi](link-gambar)
+![Materi](link-gambar)
+![Materi](link-gambar)
+![Materi](link-gambar)
+![Materi](link-gambar)
+![Materi](link-gambar)
 ![Materi](link-gambar)
 
 ---
